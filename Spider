@@ -1,0 +1,120 @@
+var bodyX = 200;
+var bodyY = 2;
+
+var bodyW = 5;
+var bodyH = 0.70 * bodyW;
+var eyeSizeW = 0.15 * bodyW;
+var eyeSizeH = 0.30 * bodyH;
+//var pupilSize = 0.50 * eyeSizeW;// right pupil
+
+//background(133, 27, 44);
+
+draw = function() {
+    
+    background(133, 27, 44);
+    // Silk line
+    stroke(199, 199, 199);
+    line(200, 0, 200, bodyY);
+    
+    
+    fill(3, 3, 3);
+    noStroke();
+    beginShape();
+    vertex(bodyX - 0.13 *bodyW, bodyY -1.35 * bodyH);
+    vertex(bodyX - 0.6 *bodyW, bodyY - 1.08 *bodyH);
+    vertex(bodyX - 0.33 * bodyW, bodyY -0.4 * bodyH);
+    vertex(bodyX + 0.04 * bodyW, bodyY - 0.5 * bodyH);
+    //vertex(bodyX + 0.02 * bodyW, bodyX + -0.99 * bodyH);
+    endShape(CLOSE);
+    stroke(3, 3, 3);
+    strokeWeight(4);
+    line(bodyX - 0.43 * bodyW, bodyY-0.37 *bodyH, bodyX + 0.19 * bodyW, bodyY -0.59 * bodyH);//hat
+    
+    fill(0, 0, 0);
+    stroke(0, 0, 0);
+    strokeWeight(1);
+    ellipse(bodyX, bodyY, bodyW, bodyH); // body
+    
+    fill(252, 252, 252);// white in eyes
+    ellipse(bodyX - 0.14 * bodyW, bodyY - 0.25 * bodyH, 0.15 * bodyW, 0.30 * bodyH); //left eye
+    ellipse(bodyX + 0.10 * bodyW, bodyY - 0.25 * bodyH, 0.15 * bodyW, 0.30 * bodyH); //right eye
+    
+    //strokeWeight(2);
+    //line(bodyX-16, bodyY-47, bodyX-5, bodyY-42);//left eyebrow
+    
+    fill(0, 0, 0);
+    ellipse(bodyX - 0.14 *bodyW, bodyY - 0.25 * bodyH, 0.05 * bodyW, 0.06 * bodyH);// right pupil
+    ellipse(bodyX + 0.10 *bodyW, bodyY - 0.25 * bodyH, 0.05 * bodyW, 0.06 * bodyH);// left pupil
+    
+    
+    fill(255, 0, 0);
+    noStroke();
+    arc(bodyX + 0.00 * bodyW, bodyY + 0.04 * bodyH, 0.80 * bodyW, 0.44 * bodyH, -16, 182);// smile
+    
+    fill(0, 0, 0);
+    ellipse(bodyX + 0.13 * bodyW, bodyY + 0.29 * bodyH, 0.22 * bodyW, 0.28 * bodyH);// tounge
+    
+    noStroke();
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX - 0.49 *bodyW, bodyY - 0.04 * bodyH);
+    vertex(bodyX - 0.85 * bodyW, bodyY - 0.46 * bodyH);
+    vertex(bodyX - 1.27 * bodyW, bodyY + 1.15 * bodyH );
+    vertex(bodyX - 0.81 * bodyW, bodyY -0.31 * bodyH);
+    endShape(CLOSE);//left middle leg
+    
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX - 0.47 * bodyW, bodyY -0.02 * bodyH);
+    vertex(bodyX - 0.53 * bodyW, bodyY - 0.85 * bodyH);
+    vertex(bodyX - 1.39 * bodyW, bodyY - 0.78 * bodyH);
+    vertex(bodyX - 0.59 * bodyW,bodyY - 0.70 * bodyH);
+    endShape(CLOSE);//left upper leg
+    
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX - 0.44 * bodyW, bodyY + 0.00 * bodyH);
+    vertex(bodyX - 0.74 * bodyW, bodyY + 0.10 * bodyH);
+    vertex(bodyX - 0.13 * bodyW, bodyY + 1.24 * bodyH);
+    vertex(bodyX - 0.91 * bodyW, bodyY + 0.01 * bodyH);
+    endShape(CLOSE);//left lower leg
+    
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX + 0.46 * bodyW,bodyY - 0.22 * bodyH);
+    vertex(bodyX + 0.64 * bodyW,bodyY -0.91 * bodyH);
+    vertex(bodyX + 1.40 * bodyW,bodyY -0.58 * bodyH);
+    vertex(bodyX + 0.65 * bodyW, bodyY -0.73 * bodyH);
+    endShape(CLOSE);//right upper leg
+    
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX + 0.49 * bodyW,bodyY - 0.1 * bodyH);
+    vertex(bodyX + 0.86 * bodyW, bodyY - 0.70 * bodyH);
+    vertex(bodyX + 1.27 * bodyW, bodyY + 1.10 * bodyH);
+    vertex(bodyX + 0.82 * bodyW, bodyY -0.44 * bodyH);
+    endShape(CLOSE);//right middle leg
+    
+    beginShape();
+    fill(3,3,3);
+    vertex(bodyX + 0.49 * bodyW, bodyY + 0.02 * bodyH);
+    vertex(bodyX + 0.90 * bodyW, bodyY + 0.59 * bodyH);
+    vertex(bodyX + 0.25 * bodyW,bodyY + 1.74 * bodyH);
+    vertex(bodyX + 1.03 * bodyW, bodyY + 0.51 * bodyH);
+    endShape(CLOSE);//right lower leg
+    
+    /*bodyY+=2;
+    bodyH++;
+    bodyW++;*/
+    
+    // Move the spider down until it reaches a y position of 200,
+    // then grow its size until its body fills the output window
+if(bodyY < 200) {
+   bodyY+=2;
+} else if(bodyW < 150){
+   bodyH++;
+   bodyW++;
+}
+    
+    
+};
